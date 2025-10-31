@@ -5,12 +5,13 @@ const port = 3000;
 
 // Configuration de la base MySQL NorthHost
 const db = mysql.createConnection({
-  host: "83.150.218.190",      // 🔁 à remplacer
-  user: "u8163_rxI4gWpV01",              // 🔁 ton identifiant
-  password: "m=i5khrMIE.@Bj7x!9T5edLF",    // 🔁 ton mot de passe
-  database: "s8163_1",           // 🔁 le nom de ta base
-  port: 3306                    // généralement 3306
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT
 });
+
 
 db.connect(err => {
   if (err) {
